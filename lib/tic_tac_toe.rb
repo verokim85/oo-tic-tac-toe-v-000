@@ -112,21 +112,21 @@ class TicTacToe
         end
 
 
-        def winner(board)
-          if winning_combo = won?(board)
-            return board[winning_combo[0]]
+        def winner
+          if winning_combo = won?
+            return @board[winning_combo[0]]
           else
             return nil
         end
         end
 
 
-      def play(board)
-        until over?(board) || draw?(board)
-          turn(board)
+      def play
+        until over? || draw?
+          turn
         end
-        if won?(board)
-          puts "Congratulations #{winner(board)}!"
+        if won?
+          puts "Congratulations #{winner}!"
         else
           puts "Cat's Game!"
       end
