@@ -38,6 +38,18 @@ class TicTacToe
           index.between?(0,8) && !position_taken?(index)
         end
 
+        def turn_count
+          counter = 0
+          @board.each do |turns|
+            if turns == "X" || turns == "O"
+          counter += 1
+          end
+          end
+          return counter
+        end
+
+
+
         def turn
           puts "Please enter 1-9:"
           input = gets.strip
