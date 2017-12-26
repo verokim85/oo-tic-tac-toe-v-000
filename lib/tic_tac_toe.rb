@@ -71,6 +71,66 @@ class TicTacToe
       end
       end
 
+      def won?
+          WIN_COMBINATIONS.each do |win|
+          test_position1 = win[0]
+          test_position2 = win[1]
+          test_position3 = win[2]
+
+          position1 = @board[test_position1]
+          position2 = @board[test_position2]
+          position3 = @board[test_position3]
+
+            if (position1 == "X" && position2 == "X" && position3 == "X") || (position1 == "O" && position2 == "O" && position3 == "O")
+                 return win
+              end
+          end
+          false
+        end
+
+
+        def full
+          @board.all? do |token|
+           token == "X" || token == "O"
+          end
+        end
+
+
+        def draw?
+          if !won?&& full?
+            return true
+          else
+            false
+          end
+        end
+
+
+        def over?
+          if won? || full? || draw?
+            return true
+          end
+        end
+
+
+        def winner(board)
+          if winning_combo = won?(board)
+            return board[winning_combo[0]]
+          else
+            return nil
+        end
+        end
+
+
+      def play(board)
+        until over?(board) || draw?(board)
+          turn(board)
+        end
+        if won?(board)
+          puts "Congratulations #{winner(board)}!"
+        else
+          puts "Cat's Game!"
+      end
+      end
 
 
 end
