@@ -48,8 +48,8 @@ class TicTacToe
           return counter
         end
 
-        def current_player(board)
-        num = turn_count(board)
+        def current_player
+        num = turn_count
           if num % 2 == 0
           return "X"
           else
@@ -57,18 +57,6 @@ class TicTacToe
           end
         end
 
-        def turn
-          puts "Please enter 1-9:"
-          input = gets.strip
-          index = input_to_index(input)
-          token = current_player
-          if valid_move?(index)
-            move(index, token)
-            display_board
-          else
-            turn
-          end
-        end
 
 
 
