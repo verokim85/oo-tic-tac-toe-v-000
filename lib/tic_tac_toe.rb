@@ -1,4 +1,4 @@
-def tic_tac_to
+def TicTacToe
   def initialize(board)
     @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
   end
